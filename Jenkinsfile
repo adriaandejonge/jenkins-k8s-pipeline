@@ -17,6 +17,6 @@ node {
    sh "mv docker-1.9.1 docker"
    sh "ls /var/run/"
    sh "./docker build -t adejonge/try-gradle ."
-   sh "./docker login -u build.environment.get("USER") -p build.environment.get("PASSWORD") -e build.environment.get("EMAIL")"
+   sh "./docker login -u " + build.environment.get("USER") + " -p " + build.environment.get("PASSWORD") + " -e " + build.environment.get("EMAIL")
    sh "./docker push adejonge/try-gradle"
 }
